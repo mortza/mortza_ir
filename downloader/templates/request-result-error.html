@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main-content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title">ثبت درخواست</h4>
+                    <p class="card-category">خطا در ثبت درخواست</p>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mr-5">
+                            تمام اطلاعات را کامل وارد کنید.
+                            <a href="{% url 'charity_app:index' %}">بازگشت</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

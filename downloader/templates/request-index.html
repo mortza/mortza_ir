@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main-content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title">ثبت درخواست</h4>
+                    <p class="card-category">تمام موارد زیر را کامل پر کنید</p>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'charity_app:create-request' %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group bmd-form-group has-info">
+                                    <label class="bmd-label-floating" for="first_name">نام تحویل گیرنده</label>
+                                    <input type="text" id="first_name" name="first_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group bmd-form-group has-info">
+                                    <label class="bmd-label-floating" for="last_name">نام خانوادگی تحویل گیرنده</label>
+                                    <input type="text" id="last_name" name="last_name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group bmd-form-group has-info">
+                                    <label class="bmd-label-floating" for="national_code">کد ملی</label>
+                                    <input type="text" id="national_code" name="national_code" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                <div class="form-group bmd-form-group has-info">
+                                    <label class="bmd-label-floating" for="province">استان</label>
+                                    <input type="text" id="province" name="province" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                <div class="form-group bmd-form-group has-info">
+                                    <label class="bmd-label-floating" for="city">شهر</label>
+                                    <input type="text" id="city" name="city" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-12">
+                                <div class="form-group bmd-form-group has-info">
+                                    <label class="bmd-label-floating" for="postal_code">کد پستی</label>
+                                    <input type="text" id="postal_code" name="postal_code" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-12">
+                                <div class="form-group bmd-form-group has-info">
+                                    <label class="bmd-label-floating" for="phone_number">تلفن ثابت</label>
+                                    <input type="text" id="phone_number" name="phone_number" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-12">
+                                <div class="form-group bmd-form-group has-info">
+                                    <label class="bmd-label-floating" for="mobile_number">تلفن همراه</label>
+                                    <input type="text" id="mobile_number" name="mobile_number" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group has-info">
+                                    <label></label>
+                                    <div class="form-group bmd-form-group">
+                                        <label class="bmd-label-floating" for="address"> آدرس دقیق محل دریافت
+                                            بسته</label>
+                                        <textarea id="address" name="address" class="form-control" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-lg pull-left btn-info pull-right">ارسال درخواست
+                        </button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

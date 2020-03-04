@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main-content %}
+    <div class="row justify-content-center" style="height: calc(100vh - 123px - 70px)">
+        <div class="col-lg-10 col-md-12">
+            <div class="card">
+                <div class="card-header card-header-success">
+                    <h4 class="card-title">ثبت درخواست</h4>
+                    <p class="card-category">اطلاعات شما ثبت شد.</p>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row py-2">
+                            <div class="col-md-6">
+                                نام دریافت کننده:
+                                <div class="d-inline-block text-success">{{ request.first_name }} {{ request.last_name }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                کدملی:
+                                <div class="d-inline-block text-success">{{ request.national_code }}</div>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-6">
+                                تلفن ثابت:
+                                <div class="d-inline-block text-success">{{ request.phone_number }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                تلفن همراه:
+                                <div class="d-inline-block text-success">{{ request.mobile_number }}</div>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-lg-4">
+                                استان:
+                                <div class="d-inline-block text-success">{{ request.province }}</div>
+                            </div>
+                            <div class="col-lg-4">
+                                شهر:
+                                <div class="d-inline-block text-success">{{ request.city }}</div>
+                            </div>
+                            <div class="col-lg-4">
+                                کدپستی:
+                                <div class="d-inline-block text-success">{{ request.postal_code }}</div>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-12">
+                                آدرس:
+                                <div class="d-inline-block text-success">{{ request.address }}</div>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-12">
+                                لینک بررسی:
+                                <a href="#{{ request.auth_token }}">بررسی</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block main-content %}
+    {% for donation in donations %}
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">
+                            اهدا کننده:
+                            {{ donation.person_name }}
+                        </h4>
+                        <p class="card-category d-inline-block">
+                            {{ donation.amount|intcomma }}
+                        </p>
+                        <p class="card-category d-inline-block pull-left">
+                            {{ donation.donate_date|naturalday }}
+                        </p>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-success">
+                            <tr>
+                                <th>ردیف</th>
+                                <th>نام</th>
+                                <th colspan="2">محل هزینه</th>
+                                <th>مقدار</th>
+                                <th>تاریخ</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for usage in donation.usage_set.all %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ usage.person_name }}</td>
+                                    <td colspan="2">{{ usage.where }}</td>
+                                    <td>{{ usage.amount }}</td>
+                                    <td>{{ usage.usage_date }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
