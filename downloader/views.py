@@ -14,7 +14,8 @@ def show_download_list(request):
     print("asd")
     opt = {
         'format': '360p',
-        'writethumbnail': True
+        'writethumbnail': True,
+        'outtmpl': 'dl/%(title)s' + '.mp4',
     }
     yt_dl = youtube_dl.YoutubeDL(opt)
     yt_dl.download([request.POST['url']])
